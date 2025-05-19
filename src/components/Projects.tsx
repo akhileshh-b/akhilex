@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const Projects = () => {
@@ -11,8 +10,8 @@ const Projects = () => {
       technologies: ['FastAPI', 'PyTorch', 'ResNet18', 'Whisper', 'Cloud Hosting'],
       metrics: ['50 concurrent requests', '99% uptime', '92% accuracy'],
       cta: [
-        { label: 'View Code', href: '#' },
-        { label: 'Live Demo', href: '#' }
+        { label: 'View Code', href: 'https://github.com/akhileshh-b/Vidiwise' },
+        { label: 'Live Demo', href: 'https://vidiwise.vercel.app' }
       ]
     },
     {
@@ -22,8 +21,8 @@ const Projects = () => {
       technologies: ['Python', 'Scikit-learn', 'Collaborative Filtering', 'Flask'],
       metrics: ['85% accuracy', '65% engagement increase'],
       cta: [
-        { label: 'View Demo', href: '#' },
-        { label: 'Read More', href: '#' }
+        { label: 'View Code', href: 'https://github.com/akhileshh-b/manahstiti' },
+        { label: 'Live Demo', href: 'https://manahstiti.vercel.app' }
       ]
     },
     {
@@ -33,7 +32,7 @@ const Projects = () => {
       technologies: ['Python', 'Scikit-learn', 'SMOTE'],
       metrics: ['94% ROC-AUC', '0.1% false positive rate'],
       cta: [
-        { label: 'View Code', href: '#' }
+        { label: 'View Code', href: 'https://github.com/akhileshh-b/CreditCardFraudDetection' }
       ]
     }
   ];

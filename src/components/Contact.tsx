@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { toast } from '@/hooks/use-toast';
 import { Mail, Github, Linkedin, Code } from 'lucide-react';
@@ -46,7 +45,7 @@ const Contact = () => {
                 <span className="text-cyber-green mr-2">&gt;</span>
                 <div>
                   <span className="text-cyber-green">Email:</span>
-                  <p>akhileshbonde02@gmail.com</p>
+                  <p>akhileshbruh@gmail.com</p>
                 </div>
               </div>
               
