@@ -1,0 +1,126 @@
+
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 120 100% 2%;
+    --foreground: 120 100% 98%;
+
+    --card: 120 10% 10%;
+    --card-foreground: 120 100% 98%;
+
+    --popover: 120 10% 5%;
+    --popover-foreground: 120 100% 98%;
+
+    --primary: 120 100% 50%;
+    --primary-foreground: 120 10% 5%;
+
+    --secondary: 120 10% 15%;
+    --secondary-foreground: 120 100% 98%;
+
+    --muted: 120 10% 20%;
+    --muted-foreground: 120 50% 80%;
+
+    --accent: 120 50% 50%;
+    --accent-foreground: 120 10% 5%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 120 100% 98%;
+
+    --border: 120 30% 20%;
+    --input: 120 30% 20%;
+    --ring: 120 100% 50%;
+
+    --radius: 0.25rem;
+  }
+
+  * {
+    @apply border-border;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cyber-black text-white font-mono;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-cyber-green font-mono;
+  }
+
+  a {
+    @apply text-cyber-green transition-all hover:shadow-neon;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-cyber-black;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-cyber-green rounded-full;
+  }
+}
+
+@layer components {
+  .cyber-terminal {
+    @apply bg-cyber-dark-gray border border-cyber-green p-4 rounded-md shadow-neon;
+  }
+
+  .cyber-button {
+    @apply bg-transparent border border-cyber-green text-cyber-green py-2 px-4 hover:shadow-neon transition-all duration-300;
+  }
+  
+  .cyber-input {
+    @apply bg-cyber-dark-gray border border-cyber-green text-white p-2 rounded focus:shadow-neon outline-none;
+  }
+  
+  .skill-node {
+    @apply border border-cyber-green bg-cyber-dark-gray p-4 rounded-md hover:shadow-neon transition-all duration-300;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl mb-8 inline-block border-b border-cyber-green pb-2;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 8px rgba(0, 255, 65, 0.8);
+  }
+  
+  .glass-cyber {
+    @apply bg-cyber-black/80 backdrop-blur-md border border-cyber-green/30;
+  }
+
+  .digital-rain-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  
+  .digital-rain-column {
+    position: absolute;
+    top: -300px;
+    color: #00FF41;
+    font-family: 'VT323', monospace;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    text-shadow: 0 0 4px rgba(0, 255, 65, 0.8);
+    transition: opacity 0.5s ease-in-out; /* Added for smoother transitions */
+  }
+}
