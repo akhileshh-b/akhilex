@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { toast } from '@/hooks/use-toast';
 import { Mail, Github, Linkedin, Code } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   // Form state
@@ -8,25 +9,42 @@ const Contact = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const form = useRef<HTMLFormElement>(null);
 
   // Handle form submission
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      toast({
-        title: 'Message sent',
-        description: 'Thank you! Your message has been received.',
-      });
-      
-      // Reset form
-      setName('');
-      setEmail('');
-      setMessage('');
-      setIsSubmitting(false);
-    }, 1000);
+    if (form.current) {
+      emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        form.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+        .then((result) => {
+          toast({
+            title: 'Message sent successfully!',
+            description: 'Thank you for reaching out. I will get back to you soon.',
+          });
+          
+          // Reset form
+          setName('');
+          setEmail('');
+          setMessage('');
+        })
+        .catch((error) => {
+          toast({
+            title: 'Error sending message',
+            description: 'Please try again later or contact me directly via email.',
+            variant: 'destructive',
+          });
+        })
+        .finally(() => {
+          setIsSubmitting(false);
+        });
+    }
   };
 
   return (
@@ -72,7 +90,7 @@ const Contact = () => {
                   </a>
                   
                   <a 
-                    href="https://github.com/akhileshb-b" 
+                    href="https://github.com/akhileshh-b" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 cyber-button rounded"
@@ -99,16 +117,17 @@ const Contact = () => {
           <div className="cyber-terminal">
             <h3 className="text-xl text-cyber-green mb-6">Send Message</h3>
             
-            <form onSubmit={handleSubmit}>
+            <form ref={form} onSubmit={handleSubmit}>
               <div className="space-y-4">
                 {/* Name field */}
                 <div>
-                  <label htmlFor="name" className="text-sm text-cyber-green mb-1 block">
+                  <label htmlFor="from_name" className="text-sm text-cyber-green mb-1 block">
                     Name:
                   </label>
                   <input
                     type="text"
-                    id="name"
+                    id="from_name"
+                    name="from_name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
@@ -119,12 +138,13 @@ const Contact = () => {
                 
                 {/* Email field */}
                 <div>
-                  <label htmlFor="email" className="text-sm text-cyber-green mb-1 block">
+                  <label htmlFor="reply_to" className="text-sm text-cyber-green mb-1 block">
                     Email:
                   </label>
                   <input
                     type="email"
-                    id="email"
+                    id="reply_to"
+                    name="reply_to"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
@@ -140,6 +160,7 @@ const Contact = () => {
                   </label>
                   <textarea
                     id="message"
+                    name="message"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     required

@@ -4,6 +4,19 @@
 
 **URL**: https://lovable.dev/projects/3d84a241-b63d-4d4c-8510-f07356938bef
 
+## Environment Variables
+
+Create a `.env` file in the root directory with the following variables:
+
+```env
+# EmailJS Configuration
+VITE_EMAILJS_SERVICE_ID=service_xxxxxxxxxxxxxxx
+VITE_EMAILJS_TEMPLATE_ID=template_xxxxxxxxxxxxxx
+VITE_EMAILJS_PUBLIC_KEY=XXXXXX_XXXXXXXXXXXXXXXXXX
+```
+
+Replace the placeholder values with your actual EmailJS credentials. Do not commit the actual `.env` file to GitHub.
+
 ## How can I edit this code?
 
 There are several ways of editing your application.
@@ -71,3 +84,16 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+
+## Development
+
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Build for production
+npm run build
+```
