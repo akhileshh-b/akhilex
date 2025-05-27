@@ -21,8 +21,8 @@ const Projects = () => {
       technologies: ['Python', 'Scikit-learn', 'Collaborative Filtering', 'Flask'],
       metrics: ['85% accuracy', '65% engagement increase'],
       cta: [
-        { label: 'View Code', href: 'https://github.com/akhileshh-b/manahstiti' },
-        { label: 'Live Demo', href: 'https://manahstiti.vercel.app' }
+        { label: 'View Code', href: 'https://github.com/akhileshh-b/Manahstiti-mental-health-assessment-platform/' },
+        { label: 'Live Demo', href: 'https://manahstiti.onrender.com' }
       ]
     },
     {
